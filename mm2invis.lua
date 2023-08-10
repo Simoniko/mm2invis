@@ -3,6 +3,10 @@ local Keybind = "E" --Set to whatever you want, has to be the name of a KeyCode 
 local Transparency = true --Will make you slightly transparent when you are invisible. No reason to disable.
 local NoClip = false --Will make your fake character no clip.
 
+while wait(1) do
+if game.Players.LocalPlayer.Backpack:FindFirstChild("Emotes") then game.Players.LocalPlayer.Backpack:FindFirstChild("Emotes"):Destroy() end
+end
+
 local Player = game:GetService("Players").LocalPlayer
 local RealCharacter = Player.Character or Player.CharacterAdded:Wait()
 
@@ -18,6 +22,11 @@ Part.Size = Vector3.new(200, 1, 200)
 Part.CFrame = CFrame.new(0, -500, 0) --Set this to whatever you want, just far away from the map.
 Part.CanCollide = true
 FakeCharacter.Parent = workspace
+
+while wait(1) do
+if FakeCharacter and FakeCharacter:FindFirstChild("Emotes") then game.Players.LocalPlayer.Backpack:FindFirstChild("Emotes"):Destroy() end
+end
+
 FakeCharacter.HumanoidRootPart.CFrame = Part.CFrame * CFrame.new(0, 5, 0)
 
 for i, v in pairs(RealCharacter:GetChildren()) do
